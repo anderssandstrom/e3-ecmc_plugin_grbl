@@ -45,7 +45,7 @@ SCRIPTS += $(foreach path, $(ECMC_SUBDIRS), $(wildcard $(APP)/$(path)/*.cmd) $(w
 TEMPLATES += $(wildcard $(APP)/protocol/*.proto)
 
 SCRIPTS += $(wildcard ../iocsh/*.iocsh)
-SCRIPTS += $(wildcard $(APP)/scripts/jinja2/*)
+SCRIPTS += $(wildcard $(APP)/scripts/jinja2/*.*)
 
 ECMC_HW_TYPES += Beckhoff_1XXX
 ECMC_HW_TYPES += Beckhoff_2XXX
