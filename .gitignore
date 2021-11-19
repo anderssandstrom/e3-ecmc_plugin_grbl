@@ -13,4 +13,4 @@ core.*
 *_old/
 *PVs.list
 *-loc/*.Makefile
-ecmccfg/*.Makefile
+ruckig/*.Makefile

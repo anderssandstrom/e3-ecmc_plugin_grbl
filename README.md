@@ -1,5 +1,5 @@
 
-e3-ecmccfg  
+e3-ruckig
 ======
-ESS Site-specific EPICS module : ecmccfg
+ESS Site-specific EPICS module : ruckig
 
