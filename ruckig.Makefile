@@ -39,7 +39,20 @@ USR_INCLUDES += -I$(where_am_I)/include
 # /opt/epics/modules
 OPT_CXXFLAGS_YES = -O3
 
+KEEP_HEADER_SUBDIRS=$(where_am_I)/include/ruckig
+
+HEADERS += include/ruckig/brake.hpp
+HEADERS += include/ruckig/block.hpp
+HEADERS += include/ruckig/input_parameter.hpp
+HEADERS += include/ruckig/output_parameter.hpp
+HEADERS += include/ruckig/position.hpp
+HEADERS += include/ruckig/profile.hpp
+HEADERS += include/ruckig/reflexxes_comparison.hpp
+HEADERS += include/ruckig/roots.hpp
 HEADERS += include/ruckig/ruckig.hpp
+HEADERS += include/ruckig/trajectory.hpp
+HEADERS += include/ruckig/utils.hpp
+HEADERS += include/ruckig/velocity.hpp
 
 SOURCES += $(APPSRC)/position-step1.cpp
 SOURCES += $(APPSRC)/position-step2.cpp
