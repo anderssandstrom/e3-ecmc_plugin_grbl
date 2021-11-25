@@ -39,21 +39,21 @@ USR_INCLUDES += -I$(where_am_I)/include
 # /opt/epics/modules
 OPT_CXXFLAGS_YES = -O3
 
-# Does bot work for some reason. Patch sources instead
-KEEP_HEADER_SUBDIRS += include
+# Not working right now because bug in E3. Use patched sources with flat include structure instead
+#KEEP_HEADER_SUBDIRS += include
 
-HEADERS += include/ruckig/brake.hpp
-HEADERS += include/ruckig/block.hpp
-HEADERS += include/ruckig/input_parameter.hpp
-HEADERS += include/ruckig/output_parameter.hpp
-HEADERS += include/ruckig/position.hpp
-HEADERS += include/ruckig/profile.hpp
-HEADERS += include/ruckig/reflexxes_comparison.hpp
-HEADERS += include/ruckig/roots.hpp
-HEADERS += include/ruckig/ruckig.hpp
-HEADERS += include/ruckig/trajectory.hpp
-HEADERS += include/ruckig/utils.hpp
-HEADERS += include/ruckig/velocity.hpp
+HEADERS += include/brake.hpp
+HEADERS += include/block.hpp
+HEADERS += include/input_parameter.hpp
+HEADERS += include/output_parameter.hpp
+HEADERS += include/position.hpp
+HEADERS += include/profile.hpp
+HEADERS += include/reflexxes_comparison.hpp
+HEADERS += include/roots.hpp
+HEADERS += include/ruckig.hpp
+HEADERS += include/trajectory.hpp
+HEADERS += include/utils.hpp
+HEADERS += include/velocity.hpp
 
 SOURCES += $(APPSRC)/position-step1.cpp
 SOURCES += $(APPSRC)/position-step2.cpp
