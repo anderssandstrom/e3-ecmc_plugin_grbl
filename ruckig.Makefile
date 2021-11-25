@@ -39,7 +39,8 @@ USR_INCLUDES += -I$(where_am_I)/include
 # /opt/epics/modules
 OPT_CXXFLAGS_YES = -O3
 
-KEEP_HEADER_SUBDIRS=$(where_am_I)/include/ruckig
+# Does bot work for some reason. Patch sources instead
+KEEP_HEADER_SUBDIRS += include
 
 HEADERS += include/ruckig/brake.hpp
 HEADERS += include/ruckig/block.hpp

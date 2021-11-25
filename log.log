@@ -1,0 +1,33 @@
+cd ruckig && git checkout master
+Your branch is up to date with 'origin/master'.
+make[1]: Entering directory '/home/pi/sources/e3-ruckig/ruckig'
+make[1]: Nothing to be done for 'prebuild'.
+make[1]: Leaving directory '/home/pi/sources/e3-ruckig/ruckig'
+make[1]: Entering directory '/home/pi/sources/e3-ruckig/ruckig'
+make[2]: Entering directory '/home/pi/sources/e3-ruckig/ruckig'
+MAKING EPICS VERSION 7.0.5
+MAKING ARCH linux-arm
+make[3]: Entering directory '/home/pi/sources/e3-ruckig/ruckig'
+make[4]: Entering directory '/home/pi/sources/e3-ruckig/ruckig/O.7.0.5_linux-arm'
+rm -f MakefileInclude
+make[4]: Leaving directory '/home/pi/sources/e3-ruckig/ruckig/O.7.0.5_linux-arm'
+make[3]: Leaving directory '/home/pi/sources/e3-ruckig/ruckig'
+make[2]: Leaving directory '/home/pi/sources/e3-ruckig/ruckig'
+make[1]: Leaving directory '/home/pi/sources/e3-ruckig/ruckig'
+make[1]: Entering directory '/home/pi/sources/e3-ruckig/ruckig'
+make[1]: Nothing to be done for 'db'.
+make[1]: Leaving directory '/home/pi/sources/e3-ruckig/ruckig'
+make[1]: Entering directory '/home/pi/sources/e3-ruckig/ruckig'
+make[2]: Entering directory '/home/pi/sources/e3-ruckig/ruckig'
+MAKING EPICS VERSION 7.0.5
+MAKING ARCH linux-arm
+make[3]: Entering directory '/home/pi/sources/e3-ruckig/ruckig'
+make[4]: Entering directory '/home/pi/sources/e3-ruckig/ruckig/O.7.0.5_linux-arm'
+rm -f MakefileInclude
+make[4]: Leaving directory '/home/pi/sources/e3-ruckig/ruckig/O.7.0.5_linux-arm'
+make[4]: Entering directory '/home/pi/sources/e3-ruckig/ruckig/O.7.0.5_linux-arm'
+rm -f MakefileInclude
+make[4]: Leaving directory '/home/pi/sources/e3-ruckig/ruckig/O.7.0.5_linux-arm'
+make[3]: Leaving directory '/home/pi/sources/e3-ruckig/ruckig'
+make[2]: Leaving directory '/home/pi/sources/e3-ruckig/ruckig'
+make[1]: Leaving directory '/home/pi/sources/e3-ruckig/ruckig'
