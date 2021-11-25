@@ -28,8 +28,8 @@ include $(E3_REQUIRE_CONFIG)/DECOUPLE_FLAGS
 
 # Not working right now because bug in E3. Use patched sources with flat include structure and no c++17 instead
 #KEEP_HEADER_SUBDIRS += include
-#PATCH_DIR : = ""
-PATCH_DIR : = patch-cpp11-flat-include/
+#PATCH_DIR := ""
+PATCH_DIR := patch-cpp11-flat-include
 
 # 
 APPSRC := $(PATCH_DIR)/src
