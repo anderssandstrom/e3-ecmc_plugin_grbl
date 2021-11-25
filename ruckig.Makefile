@@ -26,10 +26,19 @@ where_am_I := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 include $(E3_REQUIRE_TOOLS)/driver.makefile
 include $(E3_REQUIRE_CONFIG)/DECOUPLE_FLAGS
 
-APPSRC:=src
+# Not working right now because bug in E3. Use patched sources with flat include structure and no c++17 instead
+#KEEP_HEADER_SUBDIRS += include
+#PATCH_DIR : = ""
+PATCH_DIR : = patch-cpp11-flat-include/
 
+# 
+APPSRC := $(PATCH_DIR)/src
+APPINC := $(PATCH_DIR)/include
 USR_CFLAGS   += -shared -fPIC -Wall -Wextra
-USR_CPPFLAGS += -shared -fPIC -Wall -Wextra -std=c++17
+
+# c++17 not allowed because of centos 7
+#USR_CPPFLAGS += -shared -fPIC -Wall -Wextra -std=c++17
+USR_CPPFLAGS += -shared -fPIC -Wall -Wextra
 USR_LDFLAGS  += -lstdc++ 
 
 USR_INCLUDES += -I$(where_am_I)/include
@@ -39,21 +48,18 @@ USR_INCLUDES += -I$(where_am_I)/include
 # /opt/epics/modules
 OPT_CXXFLAGS_YES = -O3
 
-# Not working right now because bug in E3. Use patched sources with flat include structure instead
-#KEEP_HEADER_SUBDIRS += include
-
-HEADERS += include/brake.hpp
-HEADERS += include/block.hpp
-HEADERS += include/input_parameter.hpp
-HEADERS += include/output_parameter.hpp
-HEADERS += include/position.hpp
-HEADERS += include/profile.hpp
-HEADERS += include/reflexxes_comparison.hpp
-HEADERS += include/roots.hpp
-HEADERS += include/ruckig.hpp
-HEADERS += include/trajectory.hpp
-HEADERS += include/utils.hpp
-HEADERS += include/velocity.hpp
+HEADERS += $(APPINC)/brake.hpp
+HEADERS += $(APPINC)/block.hpp
+HEADERS += $(APPINC)/input_parameter.hpp
+HEADERS += $(APPINC)/output_parameter.hpp
+HEADERS += $(APPINC)/position.hpp
+HEADERS += $(APPINC)/profile.hpp
+HEADERS += $(APPINC)/reflexxes_comparison.hpp
+HEADERS += $(APPINC)/roots.hpp
+HEADERS += $(APPINC)/ruckig.hpp
+HEADERS += $(APPINC)/trajectory.hpp
+HEADERS += $(APPINC)/utils.hpp
+HEADERS += $(APPINC)/velocity.hpp
 
 SOURCES += $(APPSRC)/position-step1.cpp
 SOURCES += $(APPSRC)/position-step2.cpp
