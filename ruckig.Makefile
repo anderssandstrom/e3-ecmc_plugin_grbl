@@ -60,6 +60,7 @@ HEADERS += $(APPINC)/ruckig.hpp
 HEADERS += $(APPINC)/trajectory.hpp
 HEADERS += $(APPINC)/utils.hpp
 HEADERS += $(APPINC)/velocity.hpp
+HEADERS += $(APPINC)/optional.hpp
 
 SOURCES += $(APPSRC)/position-step1.cpp
 SOURCES += $(APPSRC)/position-step2.cpp
