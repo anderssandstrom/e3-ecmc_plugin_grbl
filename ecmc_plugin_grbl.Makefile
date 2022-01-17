@@ -43,24 +43,24 @@ USR_INCLUDES += -I$(where_am_I)/include
 # /opt/epics/modules
 OPT_CXXFLAGS_YES = -O3
 
-SOURCES+=main.c
-SOURCES+=motion_control.c
-SOURCES+=gcode.c
-SOURCES+=spindle_control.c
-SOURCES+=coolant_control.c
-SOURCES+=serial.c 
-SOURCES+=protocol.c
-SOURCES+=stepper.c
-SOURCES+=eeprom.c
-SOURCES+=settings.c
-SOURCES+=planner.c
-SOURCES+=nuts_bolts.c
-SOURCES+=limits.c
-SOURCES+=jog.c
-SOURCES+=print.c
-SOURCES+=probe.c
-SOURCES+=report.c
-SOURCES+=system.c
+#SOURCES+=$(APPSRC)/main.c
+SOURCES+=$(APPSRC)/motion_control.c
+SOURCES+=$(APPSRC)/gcode.c
+SOURCES+=$(APPSRC)/spindle_control.c
+SOURCES+=$(APPSRC)/coolant_control.c
+#SOURCES+=$(APPSRC)/serial.c 
+#SOURCES+=$(APPSRC)/protocol.c
+SOURCES+=$(APPSRC)/stepper.c
+SOURCES+=$(APPSRC)/eeprom.c
+SOURCES+=$(APPSRC)/settings.c
+SOURCES+=$(APPSRC)/planner.c
+SOURCES+=$(APPSRC)/nuts_bolts.c
+SOURCES+=$(APPSRC)/limits.c
+SOURCES+=$(APPSRC)/jog.c
+SOURCES+=$(APPSRC)/print.c
+SOURCES+=$(APPSRC)/probe.c
+SOURCES+=$(APPSRC)/report.c
+#SOURCES+=$(APPSRC)/system.c
 
 db: 
 .PHONY: db 
