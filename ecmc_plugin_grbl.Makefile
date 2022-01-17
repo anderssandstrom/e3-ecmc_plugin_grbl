@@ -27,8 +27,8 @@ include $(E3_REQUIRE_TOOLS)/driver.makefile
 include $(E3_REQUIRE_CONFIG)/DECOUPLE_FLAGS
 
 # 
-APPSRC := grbl/src
-¤APPINC := $(PATCH_DIR)/include
+APPSRC := grbl
+#APPINC := $(PATCH_DIR)/include
 USR_CFLAGS   += -shared -fPIC -Wall -Wextra
 
 # c++17 not allowed because of centos 7
@@ -43,24 +43,24 @@ USR_INCLUDES += -I$(where_am_I)/include
 # /opt/epics/modules
 OPT_CXXFLAGS_YES = -O3
 
-SOURCES +=main.c
-SOURCES +=motion_control.c
-SOURCES +=gcode.c
-SOURCES +=spindle_control.c
-SOURCES +=coolant_control.c
-SOURCES +=serial.c 
-SOURCES +=protocol.c
-SOURCES +=stepper.c
-SOURCES +=eeprom.c
-SOURCES +=settings.c
-SOURCES +=planner.c
-SOURCES +=nuts_bolts.c
-SOURCES +=limits.c
-SOURCES +=jog.c
-SOURCES +=print.c
-SOURCES +=probe.c
-SOURCES +=report.c
-SOURCES +=system.c
+SOURCES+=main.c
+SOURCES+=motion_control.c
+SOURCES+=gcode.c
+SOURCES+=spindle_control.c
+SOURCES+=coolant_control.c
+SOURCES+=serial.c 
+SOURCES+=protocol.c
+SOURCES+=stepper.c
+SOURCES+=eeprom.c
+SOURCES+=settings.c
+SOURCES+=planner.c
+SOURCES+=nuts_bolts.c
+SOURCES+=limits.c
+SOURCES+=jog.c
+SOURCES+=print.c
+SOURCES+=probe.c
+SOURCES+=report.c
+SOURCES+=system.c
 
 db: 
 .PHONY: db 
