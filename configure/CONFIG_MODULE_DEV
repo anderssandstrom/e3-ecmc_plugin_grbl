@@ -1,5 +1,5 @@
 #
-EPICS_MODULE_NAME:=ruckig
+EPICS_MODULE_NAME:=ecmc_plugin_grbl
 EPICS_MODULE_TAG:=master
 #
 E3_MODULE_VERSION:=develop
@@ -24,11 +24,11 @@ E3_MODULE_VERSION:=develop
 #
 
 E3_MODULE_NAME:=$(EPICS_MODULE_NAME)
-E3_MODULE_SRC_PATH:=ruckig-dev
+E3_MODULE_SRC_PATH:=ecmc_plugin_grbl-dev
 E3_MODULE_MAKEFILE:=$(EPICS_MODULE_NAME).Makefile
 
 #E3_MODULE_DEV_GITURL:="https://where your git repo which you would like to clone"
-E3_MODULE_DEV_GITURL:="https://gitlab.esss.lu.se/epics-modules/ruckig-ess.git"
+E3_MODULE_DEV_GITURL:="https://github.com/anderssandstrom/ecmc_plugin_grbl.git"
 
 # The definitions shown below can also be placed in an untracked CONFIG_MODULE_DEV.local
 -include $(TOP)/configure/CONFIG_MODULE_DEV.local

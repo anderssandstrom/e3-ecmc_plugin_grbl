@@ -1,16 +1,16 @@
 #
-EPICS_MODULE_NAME:=ruckig
+EPICS_MODULE_NAME:=ecmc_plugin_grbl
 #
-EPICS_MODULE_TAG:=v1.0.0
+EPICS_MODULE_TAG:=master
 #
-E3_MODULE_VERSION:=1.0.0
+E3_MODULE_VERSION:=master
 #
 #
 # In most case, we don't need to touch the following variables.
 #
 
 E3_MODULE_NAME:=$(EPICS_MODULE_NAME)
-E3_MODULE_SRC_PATH:=ruckig
+E3_MODULE_SRC_PATH:=ecmc_plugin_grbl
 E3_MODULE_MAKEFILE:=$(EPICS_MODULE_NAME).Makefile
 
 

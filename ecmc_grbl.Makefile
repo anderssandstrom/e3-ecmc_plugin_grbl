@@ -26,14 +26,9 @@ where_am_I := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 include $(E3_REQUIRE_TOOLS)/driver.makefile
 include $(E3_REQUIRE_CONFIG)/DECOUPLE_FLAGS
 
-# Not working right now because bug in E3. Use patched sources with flat include structure and no c++17 instead
-#KEEP_HEADER_SUBDIRS += include
-#PATCH_DIR := ""
-PATCH_DIR := patch-cpp11-flat-include
-
 # 
-APPSRC := $(PATCH_DIR)/src
-APPINC := $(PATCH_DIR)/include
+APPSRC := grbl/src
+¤APPINC := $(PATCH_DIR)/include
 USR_CFLAGS   += -shared -fPIC -Wall -Wextra
 
 # c++17 not allowed because of centos 7
@@ -48,25 +43,24 @@ USR_INCLUDES += -I$(where_am_I)/include
 # /opt/epics/modules
 OPT_CXXFLAGS_YES = -O3
 
-HEADERS += $(APPINC)/brake.hpp
-HEADERS += $(APPINC)/block.hpp
-HEADERS += $(APPINC)/input_parameter.hpp
-HEADERS += $(APPINC)/output_parameter.hpp
-HEADERS += $(APPINC)/position.hpp
-HEADERS += $(APPINC)/profile.hpp
-HEADERS += $(APPINC)/reflexxes_comparison.hpp
-HEADERS += $(APPINC)/roots.hpp
-HEADERS += $(APPINC)/ruckig.hpp
-HEADERS += $(APPINC)/trajectory.hpp
-HEADERS += $(APPINC)/utils.hpp
-HEADERS += $(APPINC)/velocity.hpp
-HEADERS += $(APPINC)/optional.hpp
-
-SOURCES += $(APPSRC)/position-step1.cpp
-SOURCES += $(APPSRC)/position-step2.cpp
-SOURCES += $(APPSRC)/velocity-step1.cpp
-SOURCES += $(APPSRC)/velocity-step2.cpp
-SOURCES += $(APPSRC)/brake.cpp
+SOURCES +=main.c
+SOURCES +=motion_control.c
+SOURCES +=gcode.c
+SOURCES +=spindle_control.c
+SOURCES +=coolant_control.c
+SOURCES +=serial.c 
+SOURCES +=protocol.c
+SOURCES +=stepper.c
+SOURCES +=eeprom.c
+SOURCES +=settings.c
+SOURCES +=planner.c
+SOURCES +=nuts_bolts.c
+SOURCES +=limits.c
+SOURCES +=jog.c\
+SOURCES +=print.c
+SOURCES +=probe.c
+SOURCES +=report.c
+SOURCES +=system.c
 
 db: 
 .PHONY: db 
