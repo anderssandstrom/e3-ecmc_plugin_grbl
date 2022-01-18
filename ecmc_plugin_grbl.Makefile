@@ -26,8 +26,14 @@ where_am_I := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 include $(E3_REQUIRE_TOOLS)/driver.makefile
 include $(E3_REQUIRE_CONFIG)/DECOUPLE_FLAGS
 
+ifneq ($(strip $(ECMC_DEP_VERSION)),)
+ecmc_VERSION=$(ECMC_DEP_VERSION)
+endif
+
 # 
-APPSRC := grbl
+APPSRC_GRBL := grbl
+APPSRC_ECMC := ecmc_plugin_grbl
+
 #APPINC := $(PATCH_DIR)/include
 USR_CFLAGS   += -shared -fPIC -Wall -Wextra
 
@@ -37,30 +43,33 @@ USR_CPPFLAGS += -shared -fPIC -Wall -Wextra
 USR_LDFLAGS  += -lstdc++ 
 
 USR_INCLUDES += -I$(where_am_I)/include
+USR_INCLUDES += -I$(APPSRC_GRBL)/*.h
 
 # Don't include debug symbols in the binary needed for a debugger
 # We don't have a debuuger, so shrink the size from 29MB to 9MB under
 # /opt/epics/modules
 OPT_CXXFLAGS_YES = -O3
 
-#SOURCES+=$(APPSRC)/main.c
-SOURCES+=$(APPSRC)/motion_control.c
-SOURCES+=$(APPSRC)/gcode.c
-SOURCES+=$(APPSRC)/spindle_control.c
-SOURCES+=$(APPSRC)/coolant_control.c
-#SOURCES+=$(APPSRC)/serial.c 
-#SOURCES+=$(APPSRC)/protocol.c
-SOURCES+=$(APPSRC)/stepper.c
-SOURCES+=$(APPSRC)/eeprom.c
-SOURCES+=$(APPSRC)/settings.c
-SOURCES+=$(APPSRC)/planner.c
-SOURCES+=$(APPSRC)/nuts_bolts.c
-SOURCES+=$(APPSRC)/limits.c
-SOURCES+=$(APPSRC)/jog.c
-SOURCES+=$(APPSRC)/print.c
-SOURCES+=$(APPSRC)/probe.c
-SOURCES+=$(APPSRC)/report.c
-#SOURCES+=$(APPSRC)/system.c
+#SOURCES+=$(APPSRC_GRBL)/main.c
+SOURCES+=$(APPSRC_GRBL)/motion_control.c
+SOURCES+=$(APPSRC_GRBL)/gcode.c
+SOURCES+=$(APPSRC_GRBL)/spindle_control.c
+SOURCES+=$(APPSRC_GRBL)/coolant_control.c
+SOURCES+=$(APPSRC_GRBL)/serial.c 
+SOURCES+=$(APPSRC_GRBL)/protocol.c
+SOURCES+=$(APPSRC_GRBL)/stepper.c
+SOURCES+=$(APPSRC_GRBL)/eeprom.c
+SOURCES+=$(APPSRC_GRBL)/settings.c
+SOURCES+=$(APPSRC_GRBL)/planner.c
+SOURCES+=$(APPSRC_GRBL)/nuts_bolts.c
+SOURCES+=$(APPSRC_GRBL)/limits.c
+SOURCES+=$(APPSRC_GRBL)/jog.c
+SOURCES+=$(APPSRC_GRBL)/print.c
+SOURCES+=$(APPSRC_GRBL)/probe.c
+SOURCES+=$(APPSRC_GRBL)/report.c
+SOURCES+=$(APPSRC_GRBL)/system.c
+
+SOURCES+=$(APPSRC_ECMC)/ecmcPluginGrbl.c
 
 db: 
 .PHONY: db 
