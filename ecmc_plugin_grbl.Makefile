@@ -26,6 +26,10 @@ where_am_I := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 include $(E3_REQUIRE_TOOLS)/driver.makefile
 include $(E3_REQUIRE_CONFIG)/DECOUPLE_FLAGS
 
+ifneq ($(strip $(ASYN_DEP_VERSION)),)
+asyn_VERSION=$(ASYN_DEP_VERSION)
+endif
+
 ifneq ($(strip $(ECMC_DEP_VERSION)),)
 ecmc_VERSION=$(ECMC_DEP_VERSION)
 endif
@@ -42,7 +46,7 @@ USR_CFLAGS   += -shared -fPIC -Wall -Wextra
 USR_CPPFLAGS += -shared -fPIC -Wall -Wextra
 USR_LDFLAGS  += -lstdc++ 
 
-USR_INCLUDES += -I$(where_am_I)/include
+#USR_INCLUDES += -I$(where_am_I)/include
 USR_INCLUDES += -I$(APPSRC_GRBL)/*.h
 
 # Don't include debug symbols in the binary needed for a debugger
@@ -51,25 +55,27 @@ USR_INCLUDES += -I$(APPSRC_GRBL)/*.h
 OPT_CXXFLAGS_YES = -O3
 
 #SOURCES+=$(APPSRC_GRBL)/main.c
-SOURCES+=$(APPSRC_GRBL)/motion_control.c
-SOURCES+=$(APPSRC_GRBL)/gcode.c
-SOURCES+=$(APPSRC_GRBL)/spindle_control.c
-SOURCES+=$(APPSRC_GRBL)/coolant_control.c
-SOURCES+=$(APPSRC_GRBL)/serial.c 
-SOURCES+=$(APPSRC_GRBL)/protocol.c
-SOURCES+=$(APPSRC_GRBL)/stepper.c
-SOURCES+=$(APPSRC_GRBL)/eeprom.c
-SOURCES+=$(APPSRC_GRBL)/settings.c
-SOURCES+=$(APPSRC_GRBL)/planner.c
-SOURCES+=$(APPSRC_GRBL)/nuts_bolts.c
-SOURCES+=$(APPSRC_GRBL)/limits.c
-SOURCES+=$(APPSRC_GRBL)/jog.c
-SOURCES+=$(APPSRC_GRBL)/print.c
-SOURCES+=$(APPSRC_GRBL)/probe.c
-SOURCES+=$(APPSRC_GRBL)/report.c
-SOURCES+=$(APPSRC_GRBL)/system.c
+SOURCES+=$(APPSRC_GRBL)/grbl_motion_control.c
+SOURCES+=$(APPSRC_GRBL)/grbl_gcode.c
+SOURCES+=$(APPSRC_GRBL)/grbl_spindle_control.c
+SOURCES+=$(APPSRC_GRBL)/grbl_coolant_control.c
+SOURCES+=$(APPSRC_GRBL)/grbl_serial.c 
+SOURCES+=$(APPSRC_GRBL)/grbl_protocol.c
+SOURCES+=$(APPSRC_GRBL)/grbl_stepper.c
+SOURCES+=$(APPSRC_GRBL)/grbl_eeprom.c
+SOURCES+=$(APPSRC_GRBL)/grbl_settings.c
+SOURCES+=$(APPSRC_GRBL)/grbl_planner.c
+SOURCES+=$(APPSRC_GRBL)/grbl_nuts_bolts.c
+SOURCES+=$(APPSRC_GRBL)/grbl_limits.c
+SOURCES+=$(APPSRC_GRBL)/grbl_jog.c
+SOURCES+=$(APPSRC_GRBL)/grbl_print.c
+SOURCES+=$(APPSRC_GRBL)/grbl_probe.c
+SOURCES+=$(APPSRC_GRBL)/grbl_report.c
+SOURCES+=$(APPSRC_GRBL)/grbl_system.c
 
 SOURCES+=$(APPSRC_ECMC)/ecmcPluginGrbl.c
+SOURCES+=$(APPSRC_ECMC)/ecmcGrbl.cpp
+SOURCES+=$(APPSRC_ECMC)/ecmcGrblWrap.cpp
 
 db: 
 .PHONY: db 
