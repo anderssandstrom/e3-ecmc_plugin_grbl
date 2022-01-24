@@ -77,6 +77,8 @@ SOURCES+=$(APPSRC_ECMC)/ecmcPluginGrbl.c
 SOURCES+=$(APPSRC_ECMC)/ecmcGrbl.cpp
 SOURCES+=$(APPSRC_ECMC)/ecmcGrblWrap.cpp
 
+DBDS    += $(APPSRC_ECMC)/ecmcGrbl.dbd
+
 db: 
 .PHONY: db 
 #
